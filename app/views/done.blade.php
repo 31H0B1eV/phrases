@@ -14,5 +14,8 @@ Phrases counter
                 </div>
             </div>
         </div>
+        <div class="row">
+            {{ link_to_route('home', 'Home page') }}
+        </div>
     </div>
 @stop
