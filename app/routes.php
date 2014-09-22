@@ -11,9 +11,12 @@
 |
 */
 
-Route::get('/', 'HomeController@index');
+Route::get('/', [
+    'as' => 'home',
+    'uses' => 'HomeController@index'
+]);
 
-Route::get('search', [
+Route::post('search', [
     'as' => 'search_phrase',
     'uses' => 'HomeController@search'
 ]);
