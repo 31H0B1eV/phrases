@@ -1,6 +1,6 @@
 <div class="row">
     <div class="col-md-6">
-    
+
         <h1>Tell me your phrase</h1>
 
             @include('layouts.partials.errors')
