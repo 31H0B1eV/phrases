@@ -12,3 +12,8 @@
 */
 
 Route::get('/', 'HomeController@index');
+
+Route::get('search', [
+    'as' => 'search_phrase',
+    'uses' => 'HomeController@search'
+]);
