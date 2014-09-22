@@ -44,8 +44,19 @@ class HomeController extends BaseController {
             $data .= $result->getData($episode[0], $episode[1]);
         }
 
-        $count = substr_count($data, $phrase);
+        $count = $this->substri_count($data, $phrase);
 
         return View::make('done', compact('count'));
+    }
+
+    /**
+     * case insensitive substr_count()
+     * @param $haystack
+     * @param $needle
+     * @return int
+     */
+    function substri_count($haystack, $needle)
+    {
+        return substr_count(strtoupper($haystack), strtoupper($needle));
     }
 }
