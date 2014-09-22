@@ -1,5 +1,7 @@
 <?php
 
+use Illuminate\Support\Facades\Input;
+
 class HomeController extends BaseController {
 
     public function index()
@@ -7,8 +9,12 @@ class HomeController extends BaseController {
         return View::make('index');
 	}
 
-    public function search($data)
+    public function search()
     {
-        
+        $phrase = Input::get('phrase');
+
+        // TODO find usage
+
+        return $phrase;
     }
 }

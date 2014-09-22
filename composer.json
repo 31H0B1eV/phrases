@@ -17,7 +17,10 @@
 			"app/database/migrations",
 			"app/database/seeds",
 			"app/tests/TestCase.php"
-		]
+		],
+        "psr-4": {
+            "Finder\\": "app/Finder"
+        }
 	},
 	"scripts": {
 		"post-install-cmd": [
