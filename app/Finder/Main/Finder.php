@@ -3,30 +3,18 @@
 
 class Finder {
 
-    /**
-     * All episode listings with Production from \ to
-     *
-     * @var array
-     */
-    protected $seasons = array(
-        'All' => [101, 277],
-    );
-
-    public function getData()
+   public function getData($from, $to)
     {
 
         $content = '';
 
-        for($i = $this->seasons['All'][0]; $i <= $this->seasons['All'][1]; $i++)
+        for($i = $from; $i <= $to; $i++)
         {
             if( $i != 102 )
             {
-                if( $response = fopen('http://www.chakoteya.net/NextGen/' . $i . '.htm', 'r') )
+                if( $response = fopen('assets/' . $i . '.htm', 'r') )
                 {
-                    while( !feof($response) )
-                    {
-                        $content .= fread($response, 8192);
-                    }
+                    $content .= stream_get_contents($response);
                     fclose($response);
                 }
             }
@@ -34,5 +22,4 @@ class Finder {
 
         return $content;
     }
-
 } 
