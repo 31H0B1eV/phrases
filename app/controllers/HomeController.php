@@ -1,9 +1,12 @@
 <?php
 
+use Finder\Form\InputForm;
 use Finder\Main\Finder;
 use Illuminate\Support\Facades\Input;
 
 class HomeController extends BaseController {
+
+    private $inputForm;
 
     /**
      * All episode listings with Production from \ to
@@ -20,6 +23,11 @@ class HomeController extends BaseController {
         [253, 277],
     );
 
+    function __construct(InputForm $inputForm)
+    {
+        $this->inputForm = $inputForm;
+    }
+
     /**
      * Index page controller
      * @return mixed
@@ -35,6 +43,15 @@ class HomeController extends BaseController {
      */
     public function search()
     {
+        try
+        {
+            $this->inputForm->validate(Input::all());
+        }
+        catch (FormValidationException $e)
+        {
+            return Redirect::home()->withErrors($e->getErrors());
+        }
+
         $phrase = Input::get('phrase');
         $data = '';
         $result = new Finder;
