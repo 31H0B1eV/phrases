@@ -13,10 +13,24 @@
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
         <![endif]-->
+        <style>
+            .banner {
+                position: fixed;
+                bottom: 5px;
+                right: 5px;
+            }
+        </style>
     </head>
     <body>
             @yield('content')
 
+        <div class="container">
+            <span class="banner pull-right">
+                <a href="http://www.phptherightway.com" target="_blank">
+                    <img src="http://www.phptherightway.com/images/banners/rect-180x150.png" alt="PHP: The Right Way"/>
+                </a>
+            </span>
+        </div>
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
         <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
     </body>
